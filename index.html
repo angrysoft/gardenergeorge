@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>George Gardener</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gardener George Dublin">
+  <meta name="keywords" content="gardner,george,garden,dublin">
+  <meta name="author" content="AngrySoft" >
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/static/manifest.json">
+  <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#8e2525">
+  <meta name="theme-color" content="#8e2525">
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link rel="stylesheet" href="static/angry.min.css">
+  <link rel="stylesheet" href="static/styles.min.css">
+  <script async type="application/dart" src="static/index.dart"></script>
+  <script>
+    // Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+(function() {
+// Bootstrap support for Dart scripts on the page as this script.
+if (navigator.userAgent.indexOf('(Dart)') === -1) {
+  // TODO:
+  // - Support in-browser compilation.
+  // - Handle inline Dart scripts.
+
+  // Fall back to compiled JS. Run through all the scripts and
+  // replace them if they have a type that indicate that they source
+  // in Dart code (type="application/dart").
+  var scripts = document.getElementsByTagName("script");
+  var length = scripts.length;
+  for (var i = 0; i < length; ++i) {
+    if (scripts[i].type == "application/dart") {
+      // Remap foo.dart to foo.dart.js.
+      if (scripts[i].src && scripts[i].src != '') {
+        var script = document.createElement('script');
+        script.src = scripts[i].src.replace(/\.dart(?=\?|$)/, '.dart.js');
+        var parent = scripts[i].parentNode;
+        // TODO(vsm): Find a solution for issue 8455 that works with more
+        // than one script.
+        document.currentScript = script;
+        parent.replaceChild(script, scripts[i]);
+      }
+    }
+  }
+}
+})();
+  </script>
+</head>
+<body>
+  <div class="container">
+
+    <div class="go-top">
+      <img class="arrow-up" src="static/images/arrow_up.png">
+    </div>
+
+
+    <div class="row center-xs">
+      <div id="top" class="logo col-xs-11 col-md-10 col-lg-6">
+        <img src="static/images/logo.png" alt="">
+      </div>
+    </div>
+
+
+    <div class="row center-xs nav-wrapper">
+      <nav class="navbar nav-justify col-xs-12 col-md-10 light-brown animated">
+        <header>
+          <div class="menu hamburger"></div>
+          <div class="header"><a href="http://www.gardenergeorge.ie/">Gardener George</a></div>
+        </header>
+        <div><a class="active" href="#about">About</a></div>
+        <div><a href="/lawncare.html">Lawn Care</a></div>
+        <div><a href="/maintenance.html">Garden Maintenance</a></div>
+        <div><a href="/testimonials.html">Testimonials</a></div>
+        <div><a href="/freequote.html">Free Quote</a></div>
+        <div><a href="/contact.html">Contact</a></div>
+      </nav>
+    </div>
+
+    <div class="row center-xs">
+      <div class="col-xs-12 col-sm-8 col-md-8 social">
+        <div><a href="https://plus.google.com/u/0/110311023372610006010" target="_blank"><img class="shadow-2" src="static/images/g.jpg" alt=""></a></div>
+        <div><a href="https://www.facebook.com/GardenerGeorgeDublin" target="_blank"><img class="shadow-2" src="static/images/face.jpg" alt=""></a></div>
+        <div><a href="https://www.youtube.com/channel/UCOz2RyYfp56SLzq3_oz3fLA" target="_blank"><img class="shadow-2" src="static/images/yt.jpg" alt=""></a></div>
+      </div>
+    </div>
+
+    <div class="row center-xs site-item">
+      <article id="about" class="col-xs-12 col-lg-10 panel shadow-6 frame">
+        <header>
+          <h2>About us :</h2>
+        </header>
+        <section>
+          <div class="row center-xs">
+            <div class="col-xs-12 panel about txt-left">
+              <div class="logo-about txt-center">
+                <img src="static/images/logo_med.png" alt="">
+              </div>
+              <p>
+                Despite our best efforts, Sometimes gardens and hedges just get out of control!
+              </p>
+              <p>
+                Does this sound familiar?
+              </p>
+              <p>
+                Why not let US take care of your garden for you, so that you can sit back, relax and enjoy the space without all the hassle of maintaining it.
+              </p>
+              <p>
+                It’s simple, we'll do all of the hard work so you don’t have to!
+              </p>
+              <p>
+                At GardenerGeorge, a local business based in South Dublin, we pride ourselves on keeping your garden looking vibrant and healthy.
+                We use high quality equipment such as Honda mowers, BlueBird Turf care equipment , Stihl and Toro. This, combined with our experienced team,  ensures  a professional service on your hedging and lawn, resulting in a great look for your garden.
+                Our Garden maintenance service can be done as a once-off or on regular appointments, it’s up to you! And of course, We make sure that all grass clippings are removed and disposed of.
+                Your lawn will be left looking healthy and great,  and ready for you to enjoy it!
+              </p>
+              <p>
+                At GardenerGeorge we love the work that we do, and we love having happy customers. The good news is that we deliver a high quality service but at affordable prices, so why not contact us, for a no obligation, free quote at <a href="tel:0851859444">0851859444</a> or fill in the <a href="freequote.html">free quote</a> form on our website.
+              </p>
+              <p class="txt-14">
+                <strong>We look forward to hearing from you!</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+
+  </div>
+
+  <footer class="container-fluid light-brown txt-center">
+    <div class="row center-xs">
+      <div class="col-xs">
+        <p>Copyright © 2016 <a target="_blank" href="#">
+        <img class="glogo" src="static/images/logo_small.png" alt="George Gardener">
+      George Gardener</a> . All Rights Reserved.</p>
+      <p class="txt-tiny">Design by <a target="_blank" href="http://www.angrysoft.ovh">
+      <img class="alogo" src="static/images/angrysoft_logo.png" alt="AngrySoft">
+      </a>
+      </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

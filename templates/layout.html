@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    {% block head %}
+  <meta charset="UTF-8">
+  <title>George Gardener</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gardener George Dublin">
+  <meta name="keywords" content="gardner,george,garden,dublin">
+  <meta name="author" content="AngrySoft" >
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/static/manifest.json">
+  <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#8e2525">
+  <meta name="theme-color" content="#8e2525">
+  <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link rel="stylesheet" href="/static/angry.min.css">
+  <link rel="stylesheet" href="/static/styles.min.css">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61526037-4', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+  {% endblock %}
+  {% block dart %}
+  {% endblock %}
+  <script>
+    // Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+(function() {
+// Bootstrap support for Dart scripts on the page as this script.
+if (navigator.userAgent.indexOf('(Dart)') === -1) {
+  // TODO:
+  // - Support in-browser compilation.
+  // - Handle inline Dart scripts.
+
+  // Fall back to compiled JS. Run through all the scripts and
+  // replace them if they have a type that indicate that they source
+  // in Dart code (type="application/dart").
+  var scripts = document.getElementsByTagName("script");
+  var length = scripts.length;
+  for (var i = 0; i < length; ++i) {
+    if (scripts[i].type == "application/dart") {
+      // Remap foo.dart to foo.dart.js.
+      if (scripts[i].src && scripts[i].src != '') {
+        var script = document.createElement('script');
+        script.src = scripts[i].src.replace(/\.dart(?=\?|$)/, '.dart.js');
+        var parent = scripts[i].parentNode;
+        // TODO(vsm): Find a solution for issue 8455 that works with more
+        // than one script.
+        document.currentScript = script;
+        parent.replaceChild(script, scripts[i]);
+      }
+    }
+  }
+}
+})();
+  </script>
+</head>
+  <body>
+    <!-- TODO zapytanie o ciacho-->
+    {% block nav %}
+    {% endblock %}
+
+    <main class="container">
+    {% block content %}
+    {% endblock %}
+    </main>
+
+    {% block footer %}
+    {% endblock %}
+  </body>
+</html>

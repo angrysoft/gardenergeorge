@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+{% block head %}
+{{ super() }}
+  <script async type="application/dart" src="/static/index.dart"></script>
+{% endblock %}
+{% block content %}
+      <div class="row center-xs">
+        <div class="col-xs-12 col-lg-6">
+            <div class="timer txt-2 txt-center">Do 26 finału pozostało <span id="countdown">00:00:00</span></div>
+        </div>
+      </div>
+
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-10 widgets">
+        <article class="sponsor-widget">
+          <section>
+            <a href="/sponsorzy" title="Sponsorzy">
+              <img id="sponsor-widget-image" src="{{ sponsor.get('logo') }}" alt="">
+            </a>
+            <p class="animated hide">{{ sponsor.get('category') }}</p>
+          </section>
+        </article>
+
+        <article class="gallery-widget">
+          <a href="/albums">
+            <figure>
+              <img id="gallery-widget-image" src="{{ photo }}" alt="">
+              <figcaption id="gallery-widget-name">Galeria</figcaption>
+            </figure>
+          </a>
+        </article>
+
+        <article class="radio-widget">
+          <figure>
+            <img src="/static/images/radio_woodstock.jpg" alt="" title="Kliknij aby otworzyć w osobnym oknie">
+            <figcaption>Radio Woodstock</figcaption>
+          </figure>
+        </article>
+        </div>
+      </div>
+
+      {% for ns in sticked %}
+      <div class="row center-xs news">
+        <article class="col-xs-12 col-md-10 panel short-news sticked">
+          <header>
+            <h2 class="title"><a href="/news/{{ ns.get('link') }}">{{ ns.get('title') }}</a></h2>
+            <time class="date">{{ ns.get('date') }}</time>
+          </header>
+          <div class="news-content">
+            <div class="news-logo">
+              <a href="/news/{{ ns.get('link') }}">
+                <img src="{{ ns.get('logo') }}" alt="">
+              </a>
+            </div>
+            {{ ns.get('news_body') }} <a href="/news/{{ ns.get('link') }}"> [...]</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+
+      {% for n in news %}
+      <div class="row center-xs news">
+        <article class="col-xs-12 col-md-10 panel short-news">
+          <header>
+            <h2 class="title"><a href="/news/{{ n['link'] }}">{{ n['title'] }}</a></h2>
+            <time class="date">{{ n['date'] }}</time>
+          </header>
+          <div class="news-content">
+            <div class="news-logo">
+              <a href="/news/{{ n['link'] }}">
+                <img src="{{ n['logo'] }}" alt="">
+              </a>
+            </div>
+            {{ n['news_body'] }} <a href="/news/{{ n['link'] }}"> [...]</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+
+      <div class="row center-xs">
+        <div class="col-xs-12 col-md-11">
+          <div class="pager">
+            <a class="disabled" href="/{{ page }}">
+              <img src="/static/images/prev.png" alt="">
+            </a>
+            {% if page >= lastpage %}
+            <a class="disabled" href="/{{ page }}">
+            {% else %}
+            <a href="/{{ page+1 }}">
+            {% endif %}
+              <img src="/static/images/next.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
