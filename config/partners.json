@@ -1,0 +1,66 @@
+{
+  "partners": [
+    {
+      "name": "The American Chamber",
+      "url": "http://www.amcham.ie/",
+      "logo": "amcham.jpg"
+    },
+    {
+      "name": "Bank of Ireland",
+      "url": "http:// www.boi.ie",
+      "logo": "boi.jpg"
+    },
+    {
+      "name": "Dlr",
+      "url": "http://www.dlrcoco.ie/",
+      "logo": "dlrcoco.jpg"
+    },
+    {
+      "name": "Sherry FitzGerald",
+      "url": "http://www.sherryfitz.ie",
+      "logo": "sherryfitz.jpg"
+    },
+    {
+      "name": "Garda",
+      "url": "http:// www.garda.ie",
+      "logo": "garda.jpg"
+    },
+    {
+      "name": "Glas",
+      "url": "http://www.glasireland.ie/",
+      "logo": "glasireland.jpg"
+    },
+    {
+      "name": "Landscape Depot",
+      "url": "http://www.landscapedepot.ie/",
+      "logo": "landscapedepot.jpg"
+    },
+    {
+      "name": "White's Agri",
+      "url": "http://www.whitesagri.ie/",
+      "logo": "whitesagri.jpg"
+    },
+    {
+      "name": "SCK Group",
+      "url": "http:// www.sckgroup.ie",
+      "logo": "sckgroup.jpg"
+    }
+    {
+      "name": "STIHL",
+      "url": "http:// www.stihl.ie",
+      "logo": "stihl.jpg"
+    },
+    {
+      "name": "STOREBOX",
+      "url": "http:// www.storebox.ie",
+      "logo": "storebox.jpg"
+    },
+    {
+      "name": "Turf Lawn Sales",
+      "url": "http://www.turflawnsales.com/",
+      "logo": "turflawnsales.jpg"
+    }
+  ]
+}
+
+

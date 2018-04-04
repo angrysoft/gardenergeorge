@@ -287,19 +287,17 @@ def secureLinkName(linkName):
 def getPlaceDetails(placeId, apiKey):
     """Google place details"""
 
-    data = urllib.parse.urlencode({'placeid': placeId,
+    args = urllib.parse.urlencode({'placeid': placeId,
                                    'key': apiKey})
-    print(data)
-    url = 'https://maps.googleapis.com/maps/api/place/details/json'
-    ret = None
+    url = 'https://maps.googleapis.com/maps/api/place/details/json?{}'.format(args)
+    ret = dict()
+
     try:
-        with urllib.request.urlopen(url, data=data.encode('ascii')) as resp:
+        with urllib.request.urlopen(url) as resp:
             if resp.getcode() == 200:
                 answer = json.loads(resp.read().decode())
-                print(answer)
                 if answer.get('status') == 'OK':
-                    ret = answer.get('reviews')
+                    ret = answer.get('result')
     except urllib.error.HTTPError as err:
         print(err.msg)
-
-    return ret
+    return ret.get('reviews')

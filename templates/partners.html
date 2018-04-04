@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="row center-xs site-item">
+      <article id="testimonials" class="col-xs-12 col-lg-10 panel shadow-6 frame">
+        <header>
+          <h2>Our Partners :</h2>
+        </header>
+        <section>
+          {% for partner in partners %}
+          <div class="row center-xs">
+            <div class="col-xs-12 panel background">
+              <div class="row">
+                <div class="col-xs-12 col-md-2 partner-logo">
+                  <a href="{{ partner.get('url') }}">
+                    <img src="/media/partners/">
+                  </a>
+                </div>
+                <div class="col-xs-12 col-md-10">
+                  <p class="partner-name">{{ partner.get('name') }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </section>
+      </article>
+    </div>
+{% endblock %}

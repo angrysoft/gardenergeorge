@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+{% block dart %}
+    <script async type="application/dart" src="/static/scripts/freequote.dart"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="row center-xs site-item">
+    <article id="freequote" class="col-xs-12 col-lg-10 panel quote frame">
+      <form id="mailForm" method="post" action="/sendMail.php" class="form" enctype=multipart/form-data>
+        <fieldset>
+          <legend>Contact</legend>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-3 label-right">
+              <label class="label" for="name">Name: </label>
+            </div>
+            <div class="col-xs-12 col-md-9 label-right">
+              <input id="name" class="input" placeholder="Name" name="name" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-3 label-right">
+              <label class="label" for="email">Email: </label>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <input class="input" id="email" type="email" placeholder="example@domain.com" name="email" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-3 label-right">
+              <label class="label" for="address">Address: </label>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <input id="address" class="input" placeholder="Address" name="address" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-3 label-right">
+              <label class="label" for="phone">Phone: </label>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <input id="phone" class="input" placeholder="Phone number" name="phone" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-3 label-right">
+              <label class="label" for="qabout">How did you hear about us? </label>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <label class="label" for="search"><input id="search" name="search" type="checkbox" class="checkbox">Google or other search</label>
+              <label class="label" for="mouth"><input id="mouth" name="mouth" type="checkbox" class="checkbox">Word of mouth</label>
+              <label class="label" for="advert"><input id="advert" name="advert" type="checkbox" class="checkbox">Advertisement</label>
+              <label class="label" for="social"><input id="social" name="social" type="checkbox" class="checkbox">Social media</label>
+            </div>
+          </div>
+
+          <div class="row center-xs">
+            <div class="col-xs-12">
+              <fieldset>
+                <legend>Messege</legend>
+                <textarea class="textarea" name="msg" required></textarea>
+              </fieldset>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-4">
+              <label class="label" for="mailagree"><input id="mailagree" name="mailagree" type="checkbox" class="checkbox">I consent to receiving messages</label>
+            </div>
+          </div>
+
+          <div class="row center-xs">
+            <div class="col-xs-12">
+              <div class="g-recaptcha" data-theme="dark" data-sitekey="6LcQcRMUAAAAANFxKCjynDmUC0dK3eXZTIu0SE3G"></div><span id="recaptchaErrorMsg"></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-2">
+              <button id='sendBtn' type="submit" class="btn light-brown" value="send">Send</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </article>
+  </div>
+{% endblock %}

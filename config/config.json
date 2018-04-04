@@ -1,0 +1,11 @@
+{
+  "server": "smtp.gmail.com",
+  "password": "Xa8Cha6e",
+  "user": "webadmin@dublinwosp.org.pl",
+  "port": "587",
+  "encryption": "tls",
+  "from": "webadmin@dublinwosp.org.pl",
+  "sendto": "webadmin@dublinwosp.org.pl",
+  "apiKey": "AIzaSyBa9A13FXwxEaRVTQWru0_Q0vLxZUFNx2U",
+  "placeid": "ChIJmdGMo6p0Z0gRG8wj-rEOUbo"
+}

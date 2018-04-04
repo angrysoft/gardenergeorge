@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block dart %}
+    <script async type="application/dart" src="/static/scripts/index.dart"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="row center-xs site-item">
+    <article id="contact" class="panel col-xs-11 col-lg-10 frame">
+      <header>Contact Info</header>
+      <section>
+        <div class="row start-xs ">
+          <div class="col-xs google-maps">
+            <!--
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2384.0765403721366!2d-6.376483183446209!3d53.30607547997071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486774aa9a94b4f5%3A0x2d34b1df40810aee!2sTynan+Hall+Park%2C+Dublin%2C+Irlandia!5e0!3m2!1spl!2spl!4v1486551462091" frameborder="0" style="border:0"></iframe>
+            -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d305158.17702491244!2d-6.373209000000003!3d53.30658200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xba510eb1fa23cc1b!2sGardener+George!5e0!3m2!1spl!2sie!4v1497039521151" frameborder="0" style="border:0"></iframe>
+          </div>
+        </div>
+
+        <div class="row start-xs">
+          <address class="col-xs col-md-5 contact-info">
+            <strong>George Gardener</strong><br>
+            <strong>Adress : </strong>Tynan Hall Park D24<br>
+            <strong>Mobile : </strong><a href="tel:0851859444">0851859444</a><br>
+            <strong>Email  : </strong><a href="mailto:gardenerdublin@gmail.com">gardenerdublin@gmail.com</a><br>
+            <div class="row start-xs links">
+              <div class="col-xs-2"><a href="https://plus.google.com/u/0/110311023372610006010" target="_blank"><img class="shadow-2" src="static/images/g.jpg" alt=""></a></div>
+              <div class="col-xs-2"><a href="https://www.facebook.com/GardenerDublin" target="_blank"><img class="shadow-2" src="static/images/face.jpg" alt=""></a></div>
+              <div class="col-xs-2"><a href="https://www.youtube.com/channel/UCOz2RyYfp56SLzq3_oz3fLA" target="_blank"><img class="shadow-2" src="static/images/yt.jpg" alt=""></a></div>
+            </div>
+          </address>
+        </div>
+      </section>
+    </article>
+  </div>
+
+{% endblock %}
