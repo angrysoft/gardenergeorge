@@ -1,6 +1,9 @@
-path = static
+path = static/scripts
 
-all: index lawncare maintenance freequote css
+all: main index lawncare maintenance freequote css
+
+main: $(path)/main.dart
+	dart2js -m -o $(path)/main.dart.js $(path)/main.dart
 
 index: $(path)/index.dart
 	dart2js -m -o $(path)/index.dart.js $(path)/index.dart

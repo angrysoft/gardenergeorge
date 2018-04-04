@@ -1,97 +1,47 @@
 {% extends 'layout.html' %}
-{% block head %}
-{{ super() }}
-  <script async type="application/dart" src="/static/index.dart"></script>
+{% block dart %}
+    <script async type="application/dart" src="/static/scripts/index.dart"></script>
 {% endblock %}
+
 {% block content %}
-      <div class="row center-xs">
-        <div class="col-xs-12 col-lg-6">
-            <div class="timer txt-2 txt-center">Do 26 finału pozostało <span id="countdown">00:00:00</span></div>
-        </div>
-      </div>
-
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-10 widgets">
-        <article class="sponsor-widget">
-          <section>
-            <a href="/sponsorzy" title="Sponsorzy">
-              <img id="sponsor-widget-image" src="{{ sponsor.get('logo') }}" alt="">
-            </a>
-            <p class="animated hide">{{ sponsor.get('category') }}</p>
-          </section>
-        </article>
-
-        <article class="gallery-widget">
-          <a href="/albums">
-            <figure>
-              <img id="gallery-widget-image" src="{{ photo }}" alt="">
-              <figcaption id="gallery-widget-name">Galeria</figcaption>
-            </figure>
-          </a>
-        </article>
-
-        <article class="radio-widget">
-          <figure>
-            <img src="/static/images/radio_woodstock.jpg" alt="" title="Kliknij aby otworzyć w osobnym oknie">
-            <figcaption>Radio Woodstock</figcaption>
-          </figure>
-        </article>
-        </div>
-      </div>
-
-      {% for ns in sticked %}
-      <div class="row center-xs news">
-        <article class="col-xs-12 col-md-10 panel short-news sticked">
-          <header>
-            <h2 class="title"><a href="/news/{{ ns.get('link') }}">{{ ns.get('title') }}</a></h2>
-            <time class="date">{{ ns.get('date') }}</time>
-          </header>
-          <div class="news-content">
-            <div class="news-logo">
-              <a href="/news/{{ ns.get('link') }}">
-                <img src="{{ ns.get('logo') }}" alt="">
-              </a>
+    <div class="row center-xs site-item">
+      <article id="about" class="col-xs-12 col-lg-10 panel shadow-6 frame">
+        <header>
+          <h2>About us :</h2>
+        </header>
+        <section>
+          <div class="row center-xs">
+            <div class="col-xs-12 panel about txt-left">
+              <div class="logo-about txt-center">
+                <img src="static/images/logo_med.png" alt="">
+              </div>
+              <p>
+                Despite our best efforts, Sometimes gardens and hedges just get out of control!
+              </p>
+              <p>
+                Does this sound familiar?
+              </p>
+              <p>
+                Why not let US take care of your garden for you, so that you can sit back, relax and enjoy the space without all the hassle of maintaining it.
+              </p>
+              <p>
+                It’s simple, we'll do all of the hard work so you don’t have to!
+              </p>
+              <p>
+                At GardenerGeorge, a local business based in South Dublin, we pride ourselves on keeping your garden looking vibrant and healthy.
+                We use high quality equipment such as Honda mowers, BlueBird Turf care equipment , Stihl and Toro. This, combined with our experienced team,  ensures  a professional service on your hedging and lawn, resulting in a great look for your garden.
+                Our Garden maintenance service can be done as a once-off or on regular appointments, it’s up to you! And of course, We make sure that all grass clippings are removed and disposed of.
+                Your lawn will be left looking healthy and great,  and ready for you to enjoy it!
+              </p>
+              <p>
+                At GardenerGeorge we love the work that we do, and we love having happy customers. The good news is that we deliver a high quality service but at affordable prices, so why not contact us, for a no obligation, free quote at <a href="tel:0851859444">0851859444</a> or fill in the <a href="freequote.html">free quote</a> form on our website.
+              </p>
+              <p class="txt-14">
+                <strong>We look forward to hearing from you!</strong>
+              </p>
             </div>
-            {{ ns.get('news_body') }} <a href="/news/{{ ns.get('link') }}"> [...]</a>
           </div>
-        </article>
-      </div>
-      {% endfor %}
-
-      {% for n in news %}
-      <div class="row center-xs news">
-        <article class="col-xs-12 col-md-10 panel short-news">
-          <header>
-            <h2 class="title"><a href="/news/{{ n['link'] }}">{{ n['title'] }}</a></h2>
-            <time class="date">{{ n['date'] }}</time>
-          </header>
-          <div class="news-content">
-            <div class="news-logo">
-              <a href="/news/{{ n['link'] }}">
-                <img src="{{ n['logo'] }}" alt="">
-              </a>
-            </div>
-            {{ n['news_body'] }} <a href="/news/{{ n['link'] }}"> [...]</a>
-          </div>
-        </article>
-      </div>
-      {% endfor %}
-
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-11">
-          <div class="pager">
-            <a class="disabled" href="/{{ page }}">
-              <img src="/static/images/prev.png" alt="">
-            </a>
-            {% if page >= lastpage %}
-            <a class="disabled" href="/{{ page }}">
-            {% else %}
-            <a href="/{{ page+1 }}">
-            {% endif %}
-              <img src="/static/images/next.png" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-
+        </section>
+      </article>
+    </div>
 {% endblock %}
