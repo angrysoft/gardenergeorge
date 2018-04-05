@@ -10,7 +10,7 @@ with open('config/config.json') as cfile:
     config = json.load(cfile)
 
 with open('config/partners.json') as pfile:
-    partners = json.load(cfile)
+    partners = json.load(pfile)
 
 
 @app.route('/')
