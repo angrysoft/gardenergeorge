@@ -1,16 +1,27 @@
 {% for review in reviews %}
 <div class="row center-xs">
   <div class="col-xs-12 panel background">
-    <div class="row">
-      <div class="col-xs-1">{{ review.get('profile_photo_url') }}</div>
-      <div class="col-xs-3"><a href="{{ review.get('author_url') }}">{{ review.get('author_name') }}</a></div>
-    </div>
+    <div class="row center-xs review">
+      <div class="col-xs-1">
+        <img class="reviewer-img" src="{{ review.get('profile_photo_url') }}">
+      </div>
 
-    <div class="row">
-      <div class="col-xs-2">{{ review.get('rating') }}</div>
-      <div class="cols-xs-3">{{ review.get('relative_time_description') }}</div>
-    </div>
+      <div class="col-xs-10">
+        <div class="row">
+          <div class="col-xs-3"><a href="{{ review.get('author_url') }}">{{ review.get('author_name') }}</a></div>
+        </div>
 
+        <div class="row">
+          <div class="col-xs-2 starts">{{ '*' * review.get('rating')|int }}</div>
+          <div class="cols-xs-3">{{ review.get('relative_time_description') }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">{{ review.get('text') }}</div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
 {% endfor %}

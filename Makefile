@@ -18,5 +18,5 @@ maintenance: $(path)/maintenance.dart
 freequote: $(path)/freequote.dart
 	dart2js -m -o $(path)/freequote.dart.js $(path)/freequote.dart
 
-css: $(csspath)/styles.css
-	sassc -t compressed $(csspath)/styles.css $(csspath)/styles.min.css
+css: $(csspath)/styles.scss
+	sassc -t compressed $(csspath)/styles.scss $(csspath)/styles.min.css

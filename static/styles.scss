@@ -371,123 +371,6 @@ img.alogo:hover, img.glogo:hover {
   border-image: url(images/borders_full_brown.png) 27 fill stretch
 }
 
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes fadeInDown {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-.fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-}
-
-@-webkit-keyframes slideInDown {
-  from {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-    visibility: visible;
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes slideInDown {
-  from {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-    visibility: visible;
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.slideInDown {
-  -webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-}
-
-@-webkit-keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-.fadeInRight {
-  -webkit-animation-name: fadeInRight;
-  animation-name: fadeInRight;
-}
-
-@-webkit-keyframes fadeInRightBig {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(2000px, 0, 0);
-    transform: translate3d(2000px, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
 
 /**** Label right ****/
 @media screen and (min-width: 770px) {
@@ -566,6 +449,16 @@ img.alogo:hover, img.glogo:hover {
   100% { transform: rotate(360deg); }
 }
 
-.star {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAANCAYAAACZ3F9/AAAAcklEQVQoz2NgoDZ4Xij9nxxNASCNIJpUjQugGheQqvEBVOMDfIoSgPg9VCEh/B7F+UCOAhDvJ6AJJK+Ay/Z8HJryCfnNAIdGA0IaC3BonEBI4wakQIgH4vsEQxeqERYIAlC+AFKg4QwYByCuxyFXj56KAEHuodjGnEtTAAAAAElFTkSuQmCC);
+.starts {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+img.reviewer-img {
+  width: auto;
+  height: 2rem;
+}
+
+.review {
+  margin: auto 0;
 }
