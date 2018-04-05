@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 import json
 from flask import Flask
 from flask import render_template
@@ -48,6 +49,17 @@ def contact():
 def reviews():
     return render_template('reviews.html', reviews=getPlaceDetails(config.get('placeid'),
                                                                    config.get('apiKey')))
+
+
+@app.route('/photos/<dir>')
+def photos(dir):
+    allowed = ['lawncare', 'gardenmaintenance', 'offer']
+    ret = list()
+    if dir in allowed:
+        for x in os.listdir(os.path.join('media', dir)):
+            if x.startswith('.'):continue
+            ret.append(os.path.join('/media', x))
+    return json.dumps(ret)
 
 
 if __name__ == '__main__':

@@ -1,4 +1,5 @@
 path = static/scripts
+csspath = static
 
 all: main index lawncare maintenance freequote css
 
@@ -17,5 +18,5 @@ maintenance: $(path)/maintenance.dart
 freequote: $(path)/freequote.dart
 	dart2js -m -o $(path)/freequote.dart.js $(path)/freequote.dart
 
-css: $(path)/styles.css
-	sassc -t compressed $(path)/styles.css $(path)/styles.min.css
+css: $(csspath)/styles.css
+	sassc -t compressed $(csspath)/styles.css $(csspath)/styles.min.css

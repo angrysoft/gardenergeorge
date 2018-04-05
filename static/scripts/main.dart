@@ -45,6 +45,17 @@ void menuOnClick() {
 }
 
 void main() {
+  Location loc = window.location;
+  String basePath = loc.pathname.split('/').last;
+  String id = "#${basePath}-menu";
+  LinkElement menuLink = querySelector(id);
+  if (menuLink != null) {
+    menuLink.classes.add('active');
+    if (basePath == 'about') {
+      menuLink.href = '#about';
+    }
+  }
+
   Debounce sc = new Debounce(onPageScroll, 250);
   SmoothScrollTo scroll = new SmoothScrollTo();
   querySelector('.go-top img').onClick.listen((event) => scroll.click('#top'));

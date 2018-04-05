@@ -100,13 +100,8 @@ def dictToString(d):
 
 
 class FilesManager:
-    allowPath = {'files': 'static/graphic/files',
-                 'news': 'static/graphic/news',
-                 'sponsors': 'static/graphic/sponsors',
-                 'wolontariusze': 'static/graphic/wolontariusze',
-                 'zespol': 'static/graphic/zespol',
-                 'albums': 'static/graphic/albums',
-                 'tmp': '/tmp'}
+    allowPath = {'lawncare': 'media/lawncare',
+                 'maintenance': 'media/gardenmaintenance'}
 
     def __init__(self):
         pass

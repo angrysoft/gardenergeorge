@@ -566,3 +566,6 @@ img.alogo:hover, img.glogo:hover {
   100% { transform: rotate(360deg); }
 }
 
+.star {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAANCAYAAACZ3F9/AAAAcklEQVQoz2NgoDZ4Xij9nxxNASCNIJpUjQugGheQqvEBVOMDfIoSgPg9VCEh/B7F+UCOAhDvJ6AJJK+Ay/Z8HJryCfnNAIdGA0IaC3BonEBI4wakQIgH4vsEQxeqERYIAlC+AFKg4QwYByCuxyFXj56KAEHuodjGnEtTAAAAAElFTkSuQmCC);
+}

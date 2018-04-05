@@ -3,7 +3,7 @@ import '/home/seba/workspace/angryCss/lib/slider.dart';
 
 void main() {
     Slider sl = new Slider('main-slider');
-    String url = '/getphotos.php?dir=lawncare';
+    String url = '/photos/lawncare';
     HttpRequest http = new HttpRequest();
     http.onReadyStateChange.listen((Event e) {
     if (http.readyState == HttpRequest.DONE &&
