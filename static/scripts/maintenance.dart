@@ -1,26 +1,25 @@
 import 'dart:html';
+import 'dart:convert';
 import '/home/seba/workspace/angryCss/lib/slider.dart';
 
 void main() {
     Slider sl = new Slider('main-slider');
-    String url = '/getphotos.php?dir=gardenmaintenance';
-    HttpRequest http = new HttpRequest();
-    http.onReadyStateChange.listen((Event e) {
-    if (http.readyState == HttpRequest.DONE &&
-        (http.status == 200 || http.status == 0)) {
-      var ret = http.responseText;
-      if ( ret.isNotEmpty && ret.indexOf(';') >= 0) {
-        for (String img in ret.split(";")) {
+    String url = '/photos/gardenmaintenance';
+    HttpRequest.getString(url)
+    .then((String photos) {
+      if (photos.isNotEmpty) {
+        List<String> urls = JSON.decode(photos);
+        for (String img in urls) {
             sl.addImage(img);
         }
         sl.animationNameNext = 'slideInRight';
         sl.animationNamePrev = 'slideInLeft';
         sl.run();
       }
-    }
+    })
+    .catchError((Error error) {
+      print(error.toString());
     });
-    http.open('GET', url, async: true);
-    http.send();
 
     Slider maintenance = new Slider('maintenance-slider');
     maintenance.addImage('/media/offer/maintenance_01.jpg');

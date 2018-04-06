@@ -1,6 +1,5 @@
 import "dart:html";
 import 'dart:js';
-import '/home/seba/workspace/angryCss/lib/requests.dart';
 
 bool checkCaptcha() {
   var response = context['grecaptcha'].callMethod('getResponse');
