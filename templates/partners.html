@@ -10,14 +10,21 @@
           {% for partner in partners %}
           <div class="row center-xs">
             <div class="col-xs-12 panel background">
-              <div class="row">
-                <div class="col-xs-12 col-md-2 partner-logo">
+              <div class="row center-xs partners">
+                <div class="col-xs-2 partner-logo">
                   <a href="{{ partner.get('url') }}">
-                    <img src="/media/partners/">
+                    <img src="/media/partners/{{ partner.get('logo') }}">
                   </a>
                 </div>
-                <div class="col-xs-12 col-md-10">
-                  <p class="partner-name">{{ partner.get('name') }}</p>
+                <div class="col-xs-10">
+                  <div class="row">
+                    <div class="col-xs-1"><stong>Name: </stong></div>
+                    <div class="col-xs-11">{{ partner.get('name') }}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-1"><stong>WWW: </stong></div>
+                    <div class="col-xs-11"><a href="{{ partner.get('url') }}">{{ partner.get('url') }}</a></div>
+                  </div>
                 </div>
               </div>
             </div>

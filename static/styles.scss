@@ -459,6 +459,12 @@ img.reviewer-img {
   height: 2rem;
 }
 
-.review {
+.review,
+.partners {
   margin: auto 0;
+}
+
+.partner-logo img {
+  width: 100%;
+  height: auto;
 }

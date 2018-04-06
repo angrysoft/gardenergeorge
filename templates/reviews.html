@@ -3,7 +3,9 @@
   <div class="col-xs-12 panel background">
     <div class="row center-xs review">
       <div class="col-xs-1">
-        <img class="reviewer-img" src="{{ review.get('profile_photo_url') }}">
+        <a href="{{ review.get('author_url') }}">
+          <img class="reviewer-img" src="{{ review.get('profile_photo_url') }}">
+        </a>
       </div>
 
       <div class="col-xs-10">

@@ -7,11 +7,6 @@ from flask import render_template
 from utils import getPlaceDetails
 
 app = Flask(__name__)
-with open('config/config.json') as cfile:
-    config = json.load(cfile)
-
-with open('config/partners.json') as pfile:
-    partners = json.load(pfile)
 
 
 @app.route('/')
@@ -32,7 +27,8 @@ def maintenance():
 
 @app.route('/partners')
 def partners():
-    return render_template('partners.html')
+    print(partners)
+    return render_template('partners.html', partners=partners.get('partners'))
 
 
 @app.route('/freequote')
@@ -61,6 +57,12 @@ def photos(dir):
             ret.append(os.path.join('/media', x))
     return json.dumps(ret)
 
+
+with open('config/config.json') as cfile:
+    config = json.load(cfile)
+
+with open('config/partners.json') as pfile:
+    partners = json.load(pfile)
 
 if __name__ == '__main__':
     app.run()

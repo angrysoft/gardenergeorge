@@ -47,6 +47,9 @@ void menuOnClick() {
 void main() {
   Location loc = window.location;
   String basePath = loc.pathname.split('/').last;
+  if (basePath.isEmpty) {
+    basePath = 'about';
+  }
   String id = "#${basePath}-menu";
   LinkElement menuLink = querySelector(id);
   if (menuLink != null) {
