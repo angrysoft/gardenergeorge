@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message</title>
+  <style>tr:nth-child(even) {background-color: #f2f2f2}</style>
+</head>
+<body>
+<table>
+  <tr>
+    <td>Name: </td>
+    <td>{{ mail.get('name') }}</td>
+  </tr>
+
+  <tr>
+    <td>Email: </td>
+    <td>{{ mail.get('email') }}</td>
+  </tr>
+
+  <tr>
+    <td>Address: </td>
+    <td>{{ mail.get('address') }}</td>
+  </tr>
+
+  <tr>
+    <td>Phone: </td>
+    <td>{{ mail.get('phone') }}</td>
+  </tr>
+
+  <tr>
+    <td>How did you hear about us?: </td>
+    <td></td>
+  </tr>
+  {% if 'search' in mail %}
+    <tr>
+      <td></td>
+      <td>Google or other search</td>
+    </tr>
+  {% endif %}
+  {% if 'mouth' in mail %}
+    <tr>
+      <td></td>
+      <td>Word of mouth</td>
+    </tr>
+  {% endif %}
+  {% if 'advert' in mail %}
+    <tr>
+      <td></td>
+      <td>Advertisement</td>
+    </tr>
+  {% endif %}
+  {% if 'social' in mail %}
+    <tr>
+      <td></td>
+      <td>Social media</td>
+    </tr>
+  {% endif %}
+
+  <tr>
+    <td>Message: </td>
+    <td>{{ mail.get('msg') }}</td>
+  </tr>
+  <tr>
+    <td>I consent to receiving messages: </td>
+    <td>
+      {% if 'mailagree' in mail %}
+        Yes
+      {% else %}
+        No
+      {% endif %}
+    </td>
+  </tr>
+</table>
+</body>
+</html>

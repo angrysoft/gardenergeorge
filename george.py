@@ -4,7 +4,12 @@ import os
 import json
 from flask import Flask
 from flask import render_template
+from flask import request
+from flask import redirect
 from utils import getPlaceDetails
+from utils import verifyCaptcha
+from utils import SendEmail
+from utils import dictToString
 
 app = Flask(__name__)
 
@@ -25,6 +30,11 @@ def maintenance():
     return render_template('maintenance.html')
 
 
+@app.route('/gutter')
+def gutter():
+    return render_template('gutter.html')
+
+
 @app.route('/partners')
 def partners():
     print(partners)
@@ -34,6 +44,36 @@ def partners():
 @app.route('/freequote')
 def freequote():
     return render_template('freequote.html')
+
+
+@app.route('/mail', methods=['GET', 'POST'])
+def mail():
+    if request.method == 'GET':
+        return request.args.get('status', 'ooops something is wrong')
+    elif request.method == 'POST':
+        form = request.form.copy()
+        form['msg'] = request.form.get('msg').replace('\n', '<br>')
+
+        return render_template('mail.html', mail=form)
+        if not verifyCaptcha(config.get('captcha'), request.form.get('g-recaptcha-response')):
+            return 'spam'
+
+        s = SendEmail(config.get('server'),
+                      config.get('user'),
+                      config.get('password'),
+                      config.get('port', '25'),
+                      config.get('encryption'))
+        s.addAddrTo(config.get('sendto'))
+        s.addAddrFrom(config.get('from'))
+        s.addTextContent(dictToString(request.form))
+        s.addHtmlContent(render_template('mail.html', mail=request.form))
+        s.addSubject('Message From GardnerGeorge.ie')
+        try:
+            err = s.send()
+        except:
+            err = True
+        status = 'ok'
+        return redirect('/mail?status={}'.format(status))
 
 
 @app.route('/contact')
