@@ -1,5 +1,4 @@
 import 'dart:html';
-import 'dart:async';
 import '/home/seba/workspace/angryCss/lib/smoothscrollto.dart';
 import '/home/seba/workspace/angryCss/lib/debounce.dart';
 
@@ -16,25 +15,17 @@ void onPageScroll() {
     upbtn.style.pointerEvents = 'none';
     upbtn.style.opacity = "0.0";
   }
-/*
-  if (pos >  2925) {
-    upbtn.style.bottom = "135px";
-  } else {
-    upbtn.style.bottom = "10px";
-  }
-*/
+
 }
 
 void fixedMenu() {
 	var pos = window.scrollY;
 	Element navbar = querySelector('nav.navbar');
 	if (pos > 300) {
-  	//navbar.classes.remove('slideInDown');
     navbar.classes.add('fadeInDown');
     navbar.classes.add('fixed-menu');
   } else if (pos < 300) {
   	navbar.classes.remove('fadeInDown');
-    //navbar.classes.add('slideInDown');
     navbar.classes.remove('fixed-menu');
   }
 }

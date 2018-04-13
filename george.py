@@ -93,7 +93,8 @@ def photos(dir):
     ret = list()
     if dir in allowed:
         for x in os.listdir(os.path.join('media', dir)):
-            if x.startswith('.'):continue
+            if x.startswith('.'):
+                continue
             ret.append(os.path.join('/media', dir, x))
     return json.dumps(ret)
 

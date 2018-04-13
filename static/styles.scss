@@ -468,3 +468,9 @@ img.reviewer-img {
   width: 100%;
   height: auto;
 }
+
+.partner-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
