@@ -19,13 +19,15 @@ void onPageScroll() {
 }
 
 void fixedMenu() {
-	var pos = window.scrollY;
+	int pos = window.scrollY;
 	Element navbar = querySelector('nav.navbar');
 	if (pos > 300) {
+	navbar.classes.remove('fadeIn');
     navbar.classes.add('fadeInDown');
     navbar.classes.add('fixed-menu');
   } else if (pos < 300) {
   	navbar.classes.remove('fadeInDown');
+  	navbar.classes.add('fadeIn');
     navbar.classes.remove('fixed-menu');
   }
 }
@@ -51,11 +53,12 @@ void main() {
   }
 
   Debounce sc = new Debounce(onPageScroll, 250);
+  Debounce fmenu = new Debounce(fixedMenu, 250);
   SmoothScrollTo scroll = new SmoothScrollTo();
   querySelector('.go-top img').onClick.listen((event) => scroll.click('#top'));
   window.onScroll.listen((event) {
   	sc.tick();
-  	fixedMenu();
+  	fmenu.tick();
   });
   // roll down menu in mobile layout
   querySelector('nav.navbar .menu').onClick.listen((Event e) => menuOnClick());
