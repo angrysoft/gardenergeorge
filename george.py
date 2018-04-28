@@ -37,7 +37,6 @@ def gutter():
 
 @app.route('/partners')
 def partners():
-    print(partners)
     return render_template('partners.html', partners=partners.get('partners'))
 
 
@@ -53,10 +52,11 @@ def mail():
     elif request.method == 'POST':
         form = request.form.copy()
         form['msg'] = request.form.get('msg').replace('\n', '<br>')
-
+        # TODO: Testing mail form
         return render_template('mail.html', mail=form)
+
         if not verifyCaptcha(config.get('captcha'), request.form.get('g-recaptcha-response')):
-            return 'spam'
+            return redirect('/mail?status={}'.format('spam'))
 
         s = SendEmail(config.get('server'),
                       config.get('user'),
@@ -88,14 +88,14 @@ def reviews():
 
 
 @app.route('/photos/<dir>')
-def photos(dir):
+def photos(directory):
     allowed = ['lawncare', 'gardenmaintenance', 'offer']
     ret = list()
-    if dir in allowed:
-        for x in os.listdir(os.path.join('media', dir)):
+    if directory in allowed:
+        for x in os.listdir(os.path.join('media', directory)):
             if x.startswith('.'):
                 continue
-            ret.append(os.path.join('/media', dir, x))
+            ret.append(os.path.join('/media', directory, x))
     return json.dumps(ret)
 
 
