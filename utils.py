@@ -291,8 +291,9 @@ def getPlaceDetails(placeId, apiKey):
         with urllib.request.urlopen(url) as resp:
             if resp.getcode() == 200:
                 answer = json.loads(resp.read().decode())
+                print(answer)
                 if answer.get('status') == 'OK':
                     ret = answer.get('result')
     except urllib.error.HTTPError as err:
         print(err.msg)
-    return ret.get('reviews')
+    return ret.get('reviews', [])
