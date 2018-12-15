@@ -87,7 +87,7 @@ def reviews():
                                                                    config.get('apiKey')))
 
 
-@app.route('/photos/<dir>')
+@app.route('/photos/<directory>')
 def photos(directory):
     allowed = ['lawncare', 'gardenmaintenance', 'offer']
     ret = list()
