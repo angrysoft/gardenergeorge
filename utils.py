@@ -291,9 +291,16 @@ def getPlaceDetails(placeId, apiKey):
         with urllib.request.urlopen(url) as resp:
             if resp.getcode() == 200:
                 answer = json.loads(resp.read().decode())
-                print(answer)
+                print(answer.get('result'))
                 if answer.get('status') == 'OK':
                     ret = answer.get('result')
+                    with open('google_map_cache.json', 'w') as cache:
+                        json.dump(ret, cache)
+                else:
+                    if os.path.exists('google_map_cache.json'):
+                        with open('google_map_cache.json', 'r') as cached:
+                            ret = json.load(cached)
+
     except urllib.error.HTTPError as err:
         print(err.msg)
     return ret.get('reviews', [])
