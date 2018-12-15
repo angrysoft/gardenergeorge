@@ -106,4 +106,4 @@ with open('config/partners.json') as pfile:
     partners = json.load(pfile)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
