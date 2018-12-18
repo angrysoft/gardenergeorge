@@ -52,9 +52,7 @@ def mail():
     elif request.method == 'POST':
         form = request.form.copy()
         form['msg'] = request.form.get('msg').replace('\n', '<br>')
-        # TODO: Testing mail form
-        # return render_template('mail.html', mail=form)
-
+        
         if not verifyCaptcha(config.get('captcha'), request.form.get('g-recaptcha-response')):
             return redirect('/mail?status={}'.format('spam'))
 

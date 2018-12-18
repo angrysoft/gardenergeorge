@@ -243,6 +243,7 @@ def verifyCaptcha(secret, gresponse):
         with urllib.request.urlopen(url, data=data.encode('ascii')) as resp:
             if resp.getcode() == 200:
                 answer = json.loads(resp.read().decode())
+                print(answer)
                 if type(answer['success']) == bool:
                     ret = answer['success']
                 elif (answer['success']) == 'true':
