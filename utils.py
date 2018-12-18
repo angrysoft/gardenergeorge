@@ -14,7 +14,7 @@ from shutil import move
 class SendEmail:
     """Class SendEmail"""
 
-    def __init__(self, srvAddr, user, password, port=25, encryption=''):
+    def __init__(self, host, user, password, port=25, encryption=''):
         """Constructor for SendEmail"""
         self.encryption = encryption
         self.msg = MIMEMultipart()
@@ -22,9 +22,9 @@ class SendEmail:
         self.htmlMsg = ''
         self.user = user
         self.password = password
-        self.srvAddr = srvAddr
+        self.host = host
         self.port = port
-        self.server = smtplib.SMTP()
+        self.server = smtplib.SMTP(host)
         self.server.set_debuglevel(0)
 
     def addHtmlContent(self, m):
@@ -73,7 +73,7 @@ class SendEmail:
         if not self.msg['to'] and not self.msg['from']:
             raise Exception('sender')
         try:
-            self.server.connect(self.srvAddr, self.port)
+            self.server.connect(self.host, self.port)
             if self.encryption.lower() == 'tls':
                 self.server.ehlo()
                 self.server.starttls()
