@@ -48,11 +48,15 @@ def freequote():
 @app.route('/mail', methods=['GET', 'POST'])
 def mail():
     if request.method == 'GET':
-        return request.args.get('status', 'ooops something is wrong')
+        status = request.args.get('status')
+        if status == 'ok':
+            return redirect('/')
+        else:
+            return 'ooops something is wrong'
     elif request.method == 'POST':
         form = request.form.copy()
         form['msg'] = request.form.get('msg').replace('\n', '<br>')
-        
+
         if not verifyCaptcha(config.get('captcha'), request.form.get('g-recaptcha-response')):
             return redirect('/mail?status={}'.format('spam'))
 
