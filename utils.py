@@ -11,10 +11,11 @@ from unicodedata import normalize
 from time import gmtime
 from shutil import move
 
+
 class SendEmail:
     """Class SendEmail"""
 
-    def __init__(self, srvAddr, user, password, port=25, encryption=''):
+    def __init__(self, host, user, password, port=25, encryption=''):
         """Constructor for SendEmail"""
         self.encryption = encryption
         self.msg = MIMEMultipart()
@@ -22,9 +23,9 @@ class SendEmail:
         self.htmlMsg = ''
         self.user = user
         self.password = password
-        self.srvAddr = srvAddr
+        self.host = host
         self.port = port
-        self.server = smtplib.SMTP()
+        self.server = smtplib.SMTP(host)
         self.server.set_debuglevel(0)
 
     def addHtmlContent(self, m):
@@ -73,7 +74,7 @@ class SendEmail:
         if not self.msg['to'] and not self.msg['from']:
             raise Exception('sender')
         try:
-            self.server.connect(self.srvAddr, self.port)
+            self.server.connect(self.host, self.port)
             if self.encryption.lower() == 'tls':
                 self.server.ehlo()
                 self.server.starttls()
@@ -243,6 +244,7 @@ def verifyCaptcha(secret, gresponse):
         with urllib.request.urlopen(url, data=data.encode('ascii')) as resp:
             if resp.getcode() == 200:
                 answer = json.loads(resp.read().decode())
+                print(answer)
                 if type(answer['success']) == bool:
                     ret = answer['success']
                 elif (answer['success']) == 'true':
@@ -293,6 +295,14 @@ def getPlaceDetails(placeId, apiKey):
                 answer = json.loads(resp.read().decode())
                 if answer.get('status') == 'OK':
                     ret = answer.get('result')
+                    with open('google_map_cache.json', 'w') as cache:
+                        json.dump(ret, cache)
+                else:
+                    if os.path.exists('google_map_cache.json'):
+                        print('load from cache')
+                        with open('google_map_cache.json', 'r') as cached:
+                            ret = json.load(cached)
+
     except urllib.error.HTTPError as err:
         print(err.msg)
     return ret.get('reviews', [])

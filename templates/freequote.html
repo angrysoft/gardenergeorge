@@ -1,4 +1,8 @@
 {% extends 'layout.html' %}
+{% block head %}
+{{ super() }}
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
 {% block dart %}
     <script async type="application/dart" src="/static/scripts/freequote.dart"></script>
 {% endblock %}
