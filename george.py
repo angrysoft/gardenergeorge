@@ -6,6 +6,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import redirect
+from flask import Response
 from utils import getPlaceDetails
 from utils import verifyCaptcha
 from utils import SendEmail
@@ -97,6 +98,18 @@ def photos(directory):
                 continue
             ret.append(os.path.join('/media', directory, x))
     return json.dumps(ret)
+
+
+@app.route('/sitemap.txt')
+def sitemap():
+    links = list()
+    for link in app.url_map.iter_rules():
+        if 'GET' in link.methods and not link.arguments and link.endpoint is not 'index':
+            links.append(f'{request.host_url}{link.endpoint}')
+
+    resp = Response(response='\n'.join(links), status=200, mimetype="text/plain")
+    resp.headers["Content-Type"] = "text/plain; charset=utf-8"
+    return resp
 
 
 with open('config/config.json') as cfile:

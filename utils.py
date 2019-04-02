@@ -295,4 +295,4 @@ def getPlaceDetails(placeId, apiKey):
                     ret = answer.get('result')
     except urllib.error.HTTPError as err:
         print(err.msg)
-    return ret.get('reviews')
+    return ret.get('reviews', [])
